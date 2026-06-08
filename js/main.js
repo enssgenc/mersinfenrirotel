@@ -75,6 +75,49 @@
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
   /* ------------------------------------------------------
+     Video showcase — sound toggle (mutex: only one unmuted)
+     ------------------------------------------------------ */
+  const soundBtns = document.querySelectorAll(".showcase__sound");
+  soundBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const card = btn.closest(".showcase__card");
+      const video = card && card.querySelector(".showcase__video");
+      if (!video) return;
+      const wantOn = btn.dataset.sound !== "on";
+      // mute everyone first
+      document.querySelectorAll(".showcase__video").forEach((v) => {
+        v.muted = true;
+      });
+      soundBtns.forEach((b) => (b.dataset.sound = "off"));
+      if (wantOn) {
+        video.muted = false;
+        video.play().catch(() => {});
+        btn.dataset.sound = "on";
+      }
+    });
+  });
+
+  /* ------------------------------------------------------
+     Pause videos when offscreen (perf)
+     ------------------------------------------------------ */
+  if ("IntersectionObserver" in window) {
+    const vio = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const v = entry.target;
+          if (entry.isIntersecting) {
+            v.play().catch(() => {});
+          } else {
+            v.pause();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    document.querySelectorAll(".showcase__video").forEach((v) => vio.observe(v));
+  }
+
+  /* ------------------------------------------------------
      Hero parallax (subtle)
      ------------------------------------------------------ */
   const heroMedia = document.querySelector(".hero__media img");

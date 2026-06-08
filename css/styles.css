@@ -828,6 +828,99 @@ p { margin: 0; }
 .room__cta:hover { color: var(--bronze); border-color: var(--bronze); }
 
 /* =========================================================
+   Video showcase
+   ========================================================= */
+
+.showcase {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.showcase__head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 70px;
+}
+
+.showcase .eyebrow { color: var(--bronze-soft); }
+.showcase__head .section-lede { color: rgba(251, 247, 240, 0.7); }
+
+.showcase__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.showcase__card {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 2px;
+  background: #0a0a0a;
+  margin: 0;
+}
+
+.showcase__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.showcase__caption {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--cream);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+  pointer-events: none;
+}
+
+.showcase__sound {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(10, 22, 24, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--cream);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, transform 0.3s;
+  border: 1px solid rgba(251, 247, 240, 0.18);
+}
+
+.showcase__sound:hover {
+  background: var(--bronze);
+  border-color: var(--bronze);
+  transform: scale(1.05);
+}
+
+.showcase__sound svg { width: 18px; height: 18px; }
+.showcase__sound .showcase__sound-on { display: none; }
+.showcase__sound[data-sound="on"] .showcase__sound-on { display: block; }
+.showcase__sound[data-sound="on"] .showcase__sound-off { display: none; }
+
+@media (max-width: 1024px) {
+  .showcase__head { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 768px) {
+  .showcase__grid { grid-template-columns: 1fr; gap: 16px; }
+  .showcase__card { aspect-ratio: 16 / 11; }
+}
+
+/* =========================================================
    Dining
    ========================================================= */
 
