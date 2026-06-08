@@ -1453,6 +1453,118 @@ p { margin: 0; }
 .footer__social svg { width: 16px; height: 16px; }
 
 /* =========================================================
+   Sticky call CTA
+   ========================================================= */
+
+.sticky-cta {
+  position: fixed;
+  right: 26px;
+  bottom: 26px;
+  z-index: 45;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 22px 14px 18px;
+  background: var(--bronze);
+  color: var(--cream);
+  border-radius: 999px;
+  box-shadow: 0 18px 50px -14px rgba(10, 22, 24, 0.55),
+              0 6px 20px -8px rgba(10, 22, 24, 0.3);
+  text-decoration: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.96);
+  transition: opacity 0.5s var(--ease-out),
+              transform 0.5s var(--ease-out),
+              background 0.3s,
+              box-shadow 0.3s,
+              visibility 0s linear 0.5s;
+}
+
+.sticky-cta.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  transition-delay: 0s, 0s, 0s, 0s, 0s;
+}
+
+.sticky-cta:hover {
+  background: var(--deep);
+  transform: translateY(-3px) scale(1);
+  box-shadow: 0 22px 60px -14px rgba(10, 22, 24, 0.6),
+              0 8px 24px -8px rgba(10, 22, 24, 0.35);
+}
+
+.sticky-cta__icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.sticky-cta__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  position: relative;
+  z-index: 1;
+}
+
+.sticky-cta__text strong {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sticky-cta__text small {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  opacity: 0.78;
+  margin-top: 2px;
+}
+
+.sticky-cta__pulse {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(251, 247, 240, 0.5);
+  animation: sticky-pulse 2.2s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes sticky-pulse {
+  0%   { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  70%  { transform: translate(-50%, -50%) scale(2.6); opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(2.6); opacity: 0; }
+}
+
+@media (max-width: 640px) {
+  .sticky-cta {
+    right: 16px;
+    bottom: 16px;
+    gap: 0;
+    padding: 16px;
+    width: 56px;
+    height: 56px;
+    justify-content: center;
+  }
+  .sticky-cta__text { display: none; }
+  .sticky-cta__pulse { left: 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticky-cta__pulse { animation: none; }
+}
+
+/* =========================================================
    Scroll reveal
    ========================================================= */
 

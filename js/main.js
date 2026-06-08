@@ -69,6 +69,24 @@
   }
 
   /* ------------------------------------------------------
+     Sticky call CTA — appear after hero scrolls past
+     ------------------------------------------------------ */
+  const stickyCta = document.getElementById("stickyCall");
+  if (stickyCta) {
+    const threshold = 520;
+    let lastVisible = false;
+    const updateSticky = () => {
+      const visible = window.scrollY > threshold;
+      if (visible !== lastVisible) {
+        stickyCta.classList.toggle("is-visible", visible);
+        lastVisible = visible;
+      }
+    };
+    window.addEventListener("scroll", updateSticky, { passive: true });
+    updateSticky();
+  }
+
+  /* ------------------------------------------------------
      Footer year
      ------------------------------------------------------ */
   const yearEl = document.getElementById("year");
