@@ -136,6 +136,64 @@
   }
 
   /* ------------------------------------------------------
+     Meta Pixel — custom events (Contact / Lead / ViewContent)
+     ------------------------------------------------------ */
+  const trackPixel = (event, params) => {
+    if (typeof window.fbq !== "function") return;
+    try {
+      if (params) window.fbq("track", event, params);
+      else window.fbq("track", event);
+    } catch (_) {}
+  };
+
+  // Phone / WhatsApp / Mail → Contact
+  document
+    .querySelectorAll('a[href^="tel:"], a[href^="mailto:"], a[href*="wa.me/"]')
+    .forEach((a) => {
+      a.addEventListener("click", () => {
+        const h = a.getAttribute("href") || "";
+        const channel = h.startsWith("tel:")
+          ? "phone"
+          : h.startsWith("mailto:")
+          ? "email"
+          : "whatsapp";
+        trackPixel("Contact", { content_name: channel });
+      });
+    });
+
+  // Reservation CTA → Lead
+  document
+    .querySelectorAll('a[href="#reserve"], a[href^="#reserve"], .room__cta')
+    .forEach((a) => {
+      a.addEventListener("click", () => {
+        trackPixel("Lead", { content_category: "reservation" });
+      });
+    });
+
+  // Room cards → ViewContent (when 45% in viewport, once each)
+  const roomCards = document.querySelectorAll(".room");
+  if ("IntersectionObserver" in window && roomCards.length) {
+    const seen = new WeakSet();
+    const rio = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !seen.has(entry.target)) {
+            seen.add(entry.target);
+            const nameEl = entry.target.querySelector(".room__name");
+            const name = nameEl ? nameEl.textContent.trim() : "Room";
+            trackPixel("ViewContent", {
+              content_name: name,
+              content_category: "room",
+            });
+          }
+        });
+      },
+      { threshold: 0.45 }
+    );
+    roomCards.forEach((r) => rio.observe(r));
+  }
+
+  /* ------------------------------------------------------
      Hero parallax (subtle)
      ------------------------------------------------------ */
   const heroMedia = document.querySelector(".hero__media img");
