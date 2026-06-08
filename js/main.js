@@ -6,21 +6,13 @@
   "use strict";
 
   /* ------------------------------------------------------
-     Sticky nav: dark on hero, light after scroll
+     Nav: always cream-blur (works over light hero panel + image)
      ------------------------------------------------------ */
   const nav = document.getElementById("nav");
-  const hero = document.querySelector(".hero");
-
-  function updateNavState() {
-    if (!nav || !hero) return;
-    const threshold = hero.offsetHeight - 120;
-    const scrolled = window.scrollY > threshold;
-    nav.classList.toggle("is-scrolled", scrolled);
-    nav.classList.toggle("is-light", !scrolled);
+  if (nav) {
+    nav.classList.add("is-scrolled");
+    nav.classList.remove("is-light");
   }
-
-  window.addEventListener("scroll", updateNavState, { passive: true });
-  updateNavState();
 
   /* ------------------------------------------------------
      Mobile nav toggle
