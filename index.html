@@ -80,7 +80,6 @@
           <li><a class="nav__link" href="#showcase">Tanıtım</a></li>
           <li><a class="nav__link" href="#gallery">Galeri</a></li>
           <li><a class="nav__link" href="#location">Konum</a></li>
-          <li><a class="nav__link" href="#blog">Blog</a></li>
         </ul>
       </nav>
 
@@ -105,7 +104,6 @@
       <a href="#showcase">Tanıtım</a>
       <a href="#gallery">Galeri</a>
       <a href="#location">Konum</a>
-      <a href="#blog">Blog</a>
       <a href="#reserve" class="nav__cta">Rezervasyon</a>
     </div>
   </header>
@@ -113,16 +111,10 @@
   <!-- ================= HERO ================= -->
   <section class="hero" id="top">
     <div class="hero__media">
-      <video
-        class="hero__video"
-        src="/assets/video/b1.mp4"
-        poster="/assets/images/slider44.jpg"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        aria-hidden="true"></video>
+      <img src="/assets/images/slider44.jpg"
+           alt="Mersin Fermir Otel — Kızkalesi'nde gece dış görünüm"
+           loading="eager"
+           fetchpriority="high" />
     </div>
 
     <div class="hero__brand-row">
@@ -294,42 +286,48 @@
 
       <div class="showcase__grid">
         <figure class="showcase__card reveal">
-          <video
-            class="showcase__video"
-            src="/assets/video/b.mp4"
-            poster="/assets/gallery/2-thumb.jpg"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            aria-label="Mersin Fermir Otel tanıtım videosu 1"></video>
-          <button class="showcase__sound" type="button" aria-label="Sesi aç" data-sound="off">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="showcase__sound-off"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="showcase__sound-on"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14"/></svg>
-          </button>
+          <div class="showcase__frame">
+            <video
+              class="showcase__video"
+              src="/assets/video/b.mp4"
+              poster="/assets/gallery/2-thumb.jpg"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              aria-label="Mersin Fermir Otel tanıtım videosu 1"></video>
+            <button class="showcase__sound" type="button" aria-label="Sesi aç" data-sound="off">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="showcase__sound-off"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="showcase__sound-on"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14"/></svg>
+            </button>
+          </div>
           <figcaption class="showcase__caption">
-            <span>01 / Otelden bir gün</span>
+            <span class="showcase__num">01</span>
+            <span class="showcase__label">Otelden bir gün</span>
           </figcaption>
         </figure>
 
         <figure class="showcase__card reveal reveal--delay-1">
-          <video
-            class="showcase__video"
-            src="/assets/video/b1.mp4"
-            poster="/assets/gallery/4-thumb.jpg"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            aria-label="Mersin Fermir Otel tanıtım videosu 2"></video>
-          <button class="showcase__sound" type="button" aria-label="Sesi aç" data-sound="off">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="showcase__sound-off"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="showcase__sound-on"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14"/></svg>
-          </button>
+          <div class="showcase__frame">
+            <video
+              class="showcase__video"
+              src="/assets/video/b1.mp4"
+              poster="/assets/gallery/4-thumb.jpg"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              aria-label="Mersin Fermir Otel tanıtım videosu 2"></video>
+            <button class="showcase__sound" type="button" aria-label="Sesi aç" data-sound="off">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="showcase__sound-off"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="showcase__sound-on"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14"/></svg>
+            </button>
+          </div>
           <figcaption class="showcase__caption">
-            <span>02 / Havuz başı ve restoran</span>
+            <span class="showcase__num">02</span>
+            <span class="showcase__label">Havuz başı ve restoran</span>
           </figcaption>
         </figure>
       </div>
@@ -612,100 +610,6 @@
     </div>
   </section>
 
-  <!-- ================= BLOG TEASER ================= -->
-  <section class="section section--sand" id="blog">
-    <div class="container">
-      <div class="blog__head">
-        <div class="reveal">
-          <div class="eyebrow">Blog</div>
-          <h2 class="section-title">Kızkalesi'nden <em>notlar</em>.</h2>
-        </div>
-        <p class="section-lede reveal reveal--delay-1">
-          Konuk olduğunuz coğrafyayı daha iyi tanımanız için kısa rehberler &mdash;
-          antik kentler, yöre mutfağı ve sezon tavsiyeleri.
-        </p>
-      </div>
-
-      <div class="blog__grid">
-        <article class="blog__card reveal">
-          <a href="#" class="blog__media">
-            <img src="https://images.unsplash.com/photo-1604881744146-bb20ee2c4f6e?auto=format&fit=crop&w=900&q=80" alt="Kızkalesi" loading="lazy" />
-          </a>
-          <div class="blog__body">
-            <div class="blog__meta">
-              <span>Rehber</span>
-              <span>5 dk. okuma</span>
-            </div>
-            <h3 class="blog__title">
-              <a href="#">Kızkalesi'nde Gezilecek 7 Antik Yer</a>
-            </h3>
-            <p class="blog__excerpt">
-              Otelin etrafındaki Korykos, Elaiussa Sebaste, Kanlıdivane ve daha pek çok
-              antik durağı sırasıyla gezmek için derli toplu bir rota.
-            </p>
-            <a href="#" class="blog__cta">
-              Devamını oku
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M9 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <article class="blog__card reveal reveal--delay-1">
-          <a href="#" class="blog__media">
-            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=900&q=80" alt="Mersin mutfağı" loading="lazy" />
-          </a>
-          <div class="blog__body">
-            <div class="blog__meta">
-              <span>Lezzet</span>
-              <span>4 dk. okuma</span>
-            </div>
-            <h3 class="blog__title">
-              <a href="#">Mersin Mutfağından Vazgeçilmez 5 Lezzet</a>
-            </h3>
-            <p class="blog__excerpt">
-              Tantuni'den cezerye'ye, çiğ köfteden kerebiç'e &mdash; Mersin'de aramanız
-              gereken yerel tatlar ve nerede en iyileri.
-            </p>
-            <a href="#" class="blog__cta">
-              Devamını oku
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M9 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <article class="blog__card reveal reveal--delay-2">
-          <a href="#" class="blog__media">
-            <img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=900&q=80" alt="Aile tatili" loading="lazy" />
-          </a>
-          <div class="blog__body">
-            <div class="blog__meta">
-              <span>Aile</span>
-              <span>6 dk. okuma</span>
-            </div>
-            <h3 class="blog__title">
-              <a href="#">Aileyle Kızkalesi: Çocuklarla Yapılacak 10 Şey</a>
-            </h3>
-            <p class="blog__excerpt">
-              Tekne turundan Cennet-Cehennem mağaralarına, küçük yaşlara uygun aktiviteler
-              ve mola noktaları için pratik bir liste.
-            </p>
-            <a href="#" class="blog__cta">
-              Devamını oku
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M9 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
-            </a>
-          </div>
-        </article>
-      </div>
-
-      <div class="blog__foot reveal reveal--delay-3">
-        <a href="#" class="btn btn--ghost">
-          Tüm yazıları gör
-          <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M9 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <!-- ================= CONTACT ================= -->
   <section class="section" id="contact">
     <div class="container">
@@ -796,7 +700,6 @@
           <ul>
             <li><a href="#gallery">Galeri</a></li>
             <li><a href="#location">Konum &amp; Çevre</a></li>
-            <li><a href="#blog">Blog</a></li>
             <li><a href="#reserve">Rezervasyon</a></li>
             <li><a href="#contact">İletişim</a></li>
           </ul>
