@@ -365,6 +365,10 @@ p { margin: 0; }
   position: relative;
 }
 
+/* Mobile menu container — hidden by default at every breakpoint;
+   only the mobile @media query below opts it back in.            */
+.nav__mobile { display: none; }
+
 .nav__toggle span {
   position: absolute;
   left: 12px;
