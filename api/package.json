@@ -1,0 +1,14 @@
+{
+  "name": "mersinfenrirotel-api",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Meta Conversions API forwarder for mersinfenrirotel.com",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

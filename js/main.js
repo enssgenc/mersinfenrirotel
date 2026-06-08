@@ -136,15 +136,60 @@
   }
 
   /* ------------------------------------------------------
-     Meta Pixel — custom events (Contact / Lead / ViewContent)
+     Meta Pixel + CAPI — dual-track with shared event_id
      ------------------------------------------------------ */
-  const trackPixel = (event, params) => {
-    if (typeof window.fbq !== "function") return;
+  const CAPI_ENDPOINT = "https://api.mersinfenrirotel.com/api/track";
+
+  const newEventId = () => {
+    if (window.crypto && window.crypto.randomUUID) return window.crypto.randomUUID();
+    return "e_" + Date.now() + "_" + Math.random().toString(36).slice(2, 10);
+  };
+
+  const getCookie = (name) => {
+    const m = document.cookie.match(
+      new RegExp("(?:^|; )" + name.replace(/([.$?*|{}()[\]\\/+^])/g, "\\$1") + "=([^;]*)")
+    );
+    return m ? decodeURIComponent(m[1]) : undefined;
+  };
+
+  const track = (event, customData) => {
+    const eventId = newEventId();
+    // 1) Client-side Pixel
+    if (typeof window.fbq === "function") {
+      try {
+        window.fbq("track", event, customData || {}, { eventID: eventId });
+      } catch (_) {}
+    }
+    // 2) Server-side CAPI (deduped via shared eventID)
     try {
-      if (params) window.fbq("track", event, params);
-      else window.fbq("track", event);
+      const body = {
+        event_name: event,
+        event_id: eventId,
+        event_source_url: window.location.href,
+        user_data: {
+          fbp: getCookie("_fbp"),
+          fbc: getCookie("_fbc"),
+        },
+        custom_data: customData || {},
+      };
+      const blob = new Blob([JSON.stringify(body)], { type: "application/json" });
+      // sendBeacon survives page-unload (e.g., tel: tap navigating away)
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(CAPI_ENDPOINT, blob);
+      } else {
+        fetch(CAPI_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+          keepalive: true,
+          credentials: "omit",
+        }).catch(() => {});
+      }
     } catch (_) {}
   };
+
+  // Fire PageView once main.js runs (deduped with CAPI via shared event_id)
+  track("PageView");
 
   // Phone / WhatsApp / Mail → Contact
   document
@@ -157,7 +202,7 @@
           : h.startsWith("mailto:")
           ? "email"
           : "whatsapp";
-        trackPixel("Contact", { content_name: channel });
+        track("Contact", { content_name: channel });
       });
     });
 
@@ -166,11 +211,11 @@
     .querySelectorAll('a[href="#reserve"], a[href^="#reserve"], .room__cta')
     .forEach((a) => {
       a.addEventListener("click", () => {
-        trackPixel("Lead", { content_category: "reservation" });
+        track("Lead", { content_category: "reservation" });
       });
     });
 
-  // Room cards → ViewContent (when 45% in viewport, once each)
+  // Room cards → ViewContent (once each, 45% threshold)
   const roomCards = document.querySelectorAll(".room");
   if ("IntersectionObserver" in window && roomCards.length) {
     const seen = new WeakSet();
@@ -181,7 +226,7 @@
             seen.add(entry.target);
             const nameEl = entry.target.querySelector(".room__name");
             const name = nameEl ? nameEl.textContent.trim() : "Room";
-            trackPixel("ViewContent", {
+            track("ViewContent", {
               content_name: name,
               content_category: "room",
             });
