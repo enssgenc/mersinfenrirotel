@@ -437,13 +437,14 @@ p { margin: 0; }
   display: flex;
   align-items: center;
   min-height: 100vh;
-  padding: calc(var(--nav-h) + 28px) clamp(28px, 6vw, 96px)
+  padding: calc(var(--nav-h) + 28px) clamp(40px, 7vw, 140px)
            clamp(80px, 10vh, 120px);
 }
 
 .hero__card {
-  max-width: 580px;
+  max-width: 620px;
   width: 100%;
+  overflow-wrap: break-word;
 }
 
 .hero__eyebrow {
@@ -468,11 +469,12 @@ p { margin: 0; }
 }
 
 .hero__title {
-  font-size: clamp(2.6rem, 5.4vw, 5.2rem);
+  font-size: clamp(2.2rem, 3.6vw, 3.8rem);
   font-weight: 300;
-  letter-spacing: -0.022em;
-  line-height: 1.02;
+  letter-spacing: -0.018em;
+  line-height: 1.05;
   margin-bottom: 30px;
+  max-width: 16ch;
   color: var(--cream);
   text-shadow: 0 2px 30px rgba(0, 0, 0, 0.35);
   animation: hero-fade-up 1s var(--ease-out) 0.3s both;
