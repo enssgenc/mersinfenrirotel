@@ -39,4 +39,24 @@
       <image:title>Korykos Antik Kara Kalesi</image:title>
     </image:image>
   </url>
+
+  <url>
+    <loc>https://mersinfermirotel.com/kizkalesi-rehberi/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://mersinfermirotel.com/assets/poi/kizkalesi.jpg</image:loc>
+      <image:title>Kızkalesi Rehberi · Mersin Erdemli</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://mersinfermirotel.com/mersin-erdemli-otel/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://mersinfermirotel.com/assets/images/slider44.jpg</image:loc>
+      <image:title>Mersin Erdemli Otel · Kızkalesi Konaklama</image:title>
+    </image:image>
+  </url>
 </urlset>
