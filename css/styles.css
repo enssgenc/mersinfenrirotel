@@ -1792,12 +1792,29 @@ p { margin: 0; }
 
   .nav__mobile .nav__cta {
     display: inline-flex;
+    align-items: center;
+    gap: 12px;
     margin-top: 24px;
     align-self: flex-start;
     font-family: var(--font-body);
-    font-size: 11px;
+    font-size: 12px;
+    padding: 16px 24px;
     border: none;
   }
+  .nav__mobile .nav__cta svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+  .nav__mobile .nav__cta--phone {
+    background: var(--bronze);
+    color: var(--cream);
+    border-radius: 999px;
+    padding: 16px 28px 16px 22px;
+    box-shadow: 0 12px 28px -10px rgba(184, 137, 90, 0.55);
+    transition: background 0.3s, transform 0.3s;
+  }
+  .nav__mobile .nav__cta--phone:hover { background: var(--bronze-soft); transform: translateY(-2px); }
 
   .hero { min-height: 620px; padding-bottom: 56px; }
   .hero__row { grid-template-columns: 1fr; gap: 40px; }
