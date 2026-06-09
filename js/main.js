@@ -31,6 +31,8 @@
     navMobile.querySelectorAll("a").forEach((a) =>
       a.addEventListener("click", () => setMenu(false))
     );
+    const closeBtn = document.getElementById("navMobileClose");
+    if (closeBtn) closeBtn.addEventListener("click", () => setMenu(false));
     // ESC closes
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && navMobile.classList.contains("is-open")) setMenu(false);

@@ -62,7 +62,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Styles (cache-busted versioned URL) -->
-  <link rel="stylesheet" href="/css/styles.css?v=5" />
+  <link rel="stylesheet" href="/css/styles.css?v=6" />
 
   <!-- Inline override — defeats any stale cached CSS that might leak
        .nav__mobile into the page flow on first-visit mobile devices.    -->
@@ -81,10 +81,31 @@
       .nav__mobile.is-open {
         display: flex !important;
         flex-direction: column !important;
-        padding: 110px 28px 40px !important;
+        padding: 96px 28px 40px !important;
         gap: 8px !important;
+        overflow-y: auto !important;
       }
     }
+    .nav__mobile-close {
+      position: absolute !important;
+      top: 18px;
+      right: 18px;
+      width: 46px;
+      height: 46px;
+      background: rgba(26,29,30,0.06);
+      border: 0;
+      border-radius: 50%;
+      color: #1A1D1E;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      transition: background .25s, transform .25s;
+      z-index: 10000;
+    }
+    .nav__mobile-close:hover { background: rgba(26,29,30,0.12); transform: rotate(90deg); }
+    .nav__mobile-close svg { width: 22px; height: 22px; }
     body.nav-open { overflow: hidden !important; }
   </style>
 
@@ -1167,6 +1188,10 @@
 
   <script src="/js/main.js" defer></script>
   <div class="nav__mobile" id="navMobile">
+    <button class="nav__mobile-close" id="navMobileClose" type="button" aria-label="Menüyü kapat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+    </button>
+    
       <a href="#about">Otel</a>
       <a href="#experience">Deneyim</a>
       <a href="#rooms">Odalar</a>
