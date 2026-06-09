@@ -365,10 +365,11 @@ p { margin: 0; }
   position: relative;
 }
 
-/* Mobile menu container — hidden by default at every breakpoint;
-   only the mobile @media query below opts it back in. !important
-   prevents any stale cached CSS or specificity quirk from leaking
-   the menu links into the page flow.                              */
+/* Mobile menu container — display:none by default at every breakpoint.
+   Only `.is-open` (added by the hamburger toggle) shows it, and only on
+   mobile widths. No translate transform anymore — the previous slide
+   trick left the element occupying layout space whenever an aggressive
+   cache or specificity quirk dropped the !important.                  */
 .nav__mobile { display: none !important; }
 
 .nav__toggle span {
@@ -1762,20 +1763,23 @@ p { margin: 0; }
   .nav__toggle { display: block; color: var(--ink); }
   .nav.is-light .nav__toggle { color: var(--cream); }
 
-  .nav__mobile {
+  /* Stays hidden until .is-open is set by the hamburger toggle. */
+  .nav__mobile.is-open {
+    display: flex !important;
+    flex-direction: column;
+    gap: 8px;
     position: fixed;
     inset: 0;
     background: var(--cream);
     z-index: 55;
     padding: 110px 28px 40px;
-    display: flex !important;
-    flex-direction: column;
-    gap: 8px;
-    transform: translateY(-100%);
-    transition: transform 0.5s var(--ease-out);
+    animation: nav-mobile-in 0.35s var(--ease-out);
   }
 
-  .nav__mobile.is-open { transform: translateY(0); }
+  @keyframes nav-mobile-in {
+    from { opacity: 0; transform: translateY(-12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
 
   .nav__mobile a {
     font-family: var(--font-display);
