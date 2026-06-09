@@ -13,6 +13,8 @@ COPY index.html /usr/share/nginx/html/index.html
 COPY css/ /usr/share/nginx/html/css/
 COPY js/ /usr/share/nginx/html/js/
 COPY assets/ /usr/share/nginx/html/assets/
+COPY sitemap.xml /usr/share/nginx/html/sitemap.xml
+COPY robots.txt /usr/share/nginx/html/robots.txt
 
 EXPOSE 80
 

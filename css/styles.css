@@ -1311,6 +1311,97 @@ p { margin: 0; }
 .cta-strip__btn:hover svg { color: var(--cream); transform: translateX(4px); }
 
 /* =========================================================
+   FAQ / SSS
+   ========================================================= */
+
+.faq__head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 60px;
+}
+
+.faq__list {
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.faq {
+  border-top: 1px solid var(--line);
+  padding: 4px 0;
+}
+
+.faq:last-of-type { border-bottom: 1px solid var(--line); }
+
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 22px 36px 22px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.faq summary::-webkit-details-marker { display: none; }
+
+.faq summary h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.4vw, 1.35rem);
+  font-weight: 400;
+  line-height: 1.35;
+  margin: 0;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+
+.faq summary::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  border-right: 1.5px solid var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+  transform: translateY(-65%) rotate(45deg);
+  transition: transform 0.4s var(--ease-out), border-color 0.3s;
+}
+
+.faq[open] summary::after { transform: translateY(-30%) rotate(-135deg); border-color: var(--bronze); }
+.faq[open] summary h3 { color: var(--bronze); }
+.faq summary:hover h3 { color: var(--bronze); }
+.faq summary:hover::after { border-color: var(--bronze); }
+
+.faq p {
+  padding: 0 36px 28px 0;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  max-width: 70ch;
+}
+
+.faq p a {
+  color: var(--bronze);
+  border-bottom: 1px solid var(--bronze);
+}
+
+@media (max-width: 1024px) {
+  .faq__head { grid-template-columns: 1fr; gap: 32px; }
+}
+
+@media (max-width: 768px) {
+  .faq summary { padding: 18px 30px 18px 0; }
+  .faq summary h3 { font-size: 1rem; }
+  .faq p { padding: 0 0 22px 0; font-size: 0.95rem; }
+}
+
+/* =========================================================
    Contact
    ========================================================= */
 
