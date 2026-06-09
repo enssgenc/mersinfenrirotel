@@ -279,7 +279,7 @@
   // Fire PageView once main.js runs (deduped with CAPI via shared event_id)
   track("PageView");
 
-  // Phone / WhatsApp / Mail → Contact
+  // Phone / Telefon / Mail → Contact
   document
     .querySelectorAll('a[href^="tel:"], a[href^="mailto:"], a[href*="wa.me/"]')
     .forEach((a) => {
