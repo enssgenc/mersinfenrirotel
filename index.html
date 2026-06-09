@@ -62,24 +62,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Styles (cache-busted versioned URL) -->
-  <link rel="stylesheet" href="/css/styles.css?v=4" />
+  <link rel="stylesheet" href="/css/styles.css?v=5" />
 
   <!-- Inline override — defeats any stale cached CSS that might leak
        .nav__mobile into the page flow on first-visit mobile devices.    -->
   <style id="nav-mobile-guard">
-    .nav__mobile { display: none !important; }
+    /* nav__mobile must be hidden by default everywhere, and must always
+       paint above the page content when opened — no cache or specificity
+       quirk should be able to break this.                                */
+    .nav__mobile {
+      display: none !important;
+      position: fixed !important;
+      inset: 0 !important;
+      z-index: 9999 !important;
+      background: #FBF7F0 !important;
+    }
     @media (max-width: 768px) {
       .nav__mobile.is-open {
         display: flex !important;
-        flex-direction: column;
-        position: fixed;
-        inset: 0;
-        background: #FBF7F0;
-        z-index: 55;
-        padding: 110px 28px 40px;
-        gap: 8px;
+        flex-direction: column !important;
+        padding: 110px 28px 40px !important;
+        gap: 8px !important;
       }
     }
+    body.nav-open { overflow: hidden !important; }
   </style>
 
   <!-- Structured data -->
@@ -472,19 +478,7 @@
       </button>
     </div>
 
-    <div class="nav__mobile" id="navMobile">
-      <a href="#about">Otel</a>
-      <a href="#experience">Deneyim</a>
-      <a href="#rooms">Odalar</a>
-      <a href="#dining">Restoran</a>
-      <a href="#showcase">Tanıtım</a>
-      <a href="#gallery">Galeri</a>
-      <a href="#location">Konum</a>
-      <a href="/kizkalesi-rehberi/">Rehber</a>
-      <a href="#sss">SSS</a>
-      <a href="#reserve" class="nav__cta">Rezervasyon</a>
-    </div>
-  </header>
+    </header>
 
   <!-- ================= HERO ================= -->
   <section class="hero" id="top">
@@ -1172,5 +1166,17 @@
   </a>
 
   <script src="/js/main.js" defer></script>
+  <div class="nav__mobile" id="navMobile">
+      <a href="#about">Otel</a>
+      <a href="#experience">Deneyim</a>
+      <a href="#rooms">Odalar</a>
+      <a href="#dining">Restoran</a>
+      <a href="#showcase">Tanıtım</a>
+      <a href="#gallery">Galeri</a>
+      <a href="#location">Konum</a>
+      <a href="/kizkalesi-rehberi/">Rehber</a>
+      <a href="#sss">SSS</a>
+      <a href="#reserve" class="nav__cta">Rezervasyon</a>
+    </div>
 </body>
 </html>

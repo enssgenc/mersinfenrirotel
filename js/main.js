@@ -21,20 +21,19 @@
   const navMobile = document.getElementById("navMobile");
 
   if (navToggle && navMobile) {
-    navToggle.addEventListener("click", () => {
-      const open = navMobile.classList.toggle("is-open");
+    const setMenu = (open) => {
+      navMobile.classList.toggle("is-open", open);
       navToggle.classList.toggle("is-open", open);
       navToggle.setAttribute("aria-expanded", String(open));
-      document.body.style.overflow = open ? "hidden" : "";
-    });
-
-    navMobile.querySelectorAll("a").forEach((a) => {
-      a.addEventListener("click", () => {
-        navMobile.classList.remove("is-open");
-        navToggle.classList.remove("is-open");
-        navToggle.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
-      });
+      document.body.classList.toggle("nav-open", open);
+    };
+    navToggle.addEventListener("click", () => setMenu(!navMobile.classList.contains("is-open")));
+    navMobile.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", () => setMenu(false))
+    );
+    // ESC closes
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && navMobile.classList.contains("is-open")) setMenu(false);
     });
   }
 
