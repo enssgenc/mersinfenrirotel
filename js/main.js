@@ -6,6 +6,101 @@
   "use strict";
 
   /* ------------------------------------------------------
+     Reservation form — public-leads to rezervasyonpro
+     ------------------------------------------------------ */
+  const rForm = document.getElementById("reservationForm");
+  if (rForm) {
+    const PUBLIC_LEADS_URL = "https://rezervasyonpro.hoteldijital.com/api/public-leads";
+    const SITE_KEY = "fermirgrand";
+    const childrenSelect = document.getElementById("rfChildren");
+    const agesRow = document.getElementById("rfAges");
+    const status = document.getElementById("rfStatus");
+    const submitBtn = document.getElementById("rfSubmit");
+
+    const renderAgeFields = () => {
+      const n = parseInt(childrenSelect.value, 10) || 0;
+      if (n === 0) {
+        agesRow.hidden = true;
+        agesRow.innerHTML = "";
+        return;
+      }
+      agesRow.hidden = false;
+      agesRow.innerHTML = "";
+      for (let i = 0; i < n; i++) {
+        const field = document.createElement("div");
+        field.className = "rf__field";
+        field.innerHTML =
+          '<label for="rfAge' + i + '">' + (i + 1) + ". çocuk yaşı *</label>" +
+          '<input id="rfAge' + i + '" name="childAge_' + i + '" type="number" min="0" max="17" required placeholder="0–17" />';
+        agesRow.appendChild(field);
+      }
+    };
+    childrenSelect.addEventListener("change", renderAgeFields);
+
+    const setStatus = (msg, kind) => {
+      status.textContent = msg;
+      status.className = "rf__status rf__status--show rf__status--" + kind;
+    };
+
+    rForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!rForm.checkValidity()) {
+        rForm.reportValidity();
+        return;
+      }
+      const fd = new FormData(rForm);
+      const childCount = parseInt(fd.get("children") || "0", 10);
+      const childAges = [];
+      for (let i = 0; i < childCount; i++) {
+        const age = parseInt(fd.get("childAge_" + i) || "", 10);
+        if (Number.isInteger(age)) childAges.push(age);
+      }
+      const payload = {
+        siteKey: SITE_KEY,
+        fullName: String(fd.get("fullName") || "").trim(),
+        phone: String(fd.get("phone") || "").trim(),
+        adults: parseInt(fd.get("adults") || "2", 10),
+        children: childCount,
+        childAges: childAges.length ? childAges : null,
+        checkIn: fd.get("checkIn") || null,
+        checkOut: fd.get("checkOut") || null,
+        message: String(fd.get("message") || "Rezervasyon talebi (siteden form).").trim() || "Rezervasyon talebi.",
+        sourceHotelName: "Mersin Fermir Grand Otel",
+        sourceHotelSlug: "fermir-grand-otel",
+        pageUrl: window.location.href.slice(0, 800),
+        pageTitle: document.title.slice(0, 240),
+        referrer: (document.referrer || "").slice(0, 800) || null,
+      };
+
+      submitBtn.disabled = true;
+      setStatus("Gönderiliyor…", "loading");
+
+      try {
+        const r = await fetch(PUBLIC_LEADS_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        if (!r.ok) {
+          const errData = await r.json().catch(() => ({}));
+          throw new Error(errData.error || ("HTTP " + r.status));
+        }
+        setStatus("✓ Talebiniz alındı. En kısa sürede sizi arayacağız.", "success");
+        rForm.reset();
+        renderAgeFields();
+        // Lead event (Pixel + CAPI)
+        if (typeof window.fbq === "function") {
+          try { window.fbq("track", "Lead", { content_category: "reservation_form", value: 1, currency: "TRY" }); } catch (_) {}
+        }
+      } catch (err) {
+        setStatus("⚠ Form gönderilemedi: " + (err.message || "tekrar deneyin") + ". Bizi arayabilirsiniz: 0324 404 07 70", "error");
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  }
+
+  /* ------------------------------------------------------
      Nav: always cream-blur (works over light hero panel + image)
      ------------------------------------------------------ */
   const nav = document.getElementById("nav");

@@ -1345,6 +1345,190 @@ p { margin: 0; }
 .cta-strip__btn:hover svg { color: var(--cream); transform: translateX(4px); }
 
 /* =========================================================
+   Reservation form
+   ========================================================= */
+
+.reserve-form .rf-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 60px;
+}
+
+.rf {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: clamp(28px, 4vw, 48px);
+}
+
+.rf__row {
+  display: grid;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.rf__row--2 { grid-template-columns: 1fr 1fr; }
+
+.rf__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rf__field label {
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.rf__field label span {
+  color: var(--bronze);
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.rf__field input,
+.rf__field select,
+.rf__field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  font: inherit;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+  font-family: var(--font-body);
+}
+
+.rf__field select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231A1D1E' stroke-width='1.5' fill='none' stroke-linecap='square'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 12px 8px;
+  padding-right: 40px;
+}
+
+.rf__field textarea {
+  resize: vertical;
+  min-height: 96px;
+  line-height: 1.55;
+}
+
+.rf__field input:focus,
+.rf__field select:focus,
+.rf__field textarea:focus {
+  outline: none;
+  border-color: var(--bronze);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(184, 137, 90, 0.12);
+}
+
+.rf__field input::placeholder,
+.rf__field textarea::placeholder { color: var(--ink-mute); }
+
+.rf__ages {
+  margin-bottom: 22px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.rf__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.rf__submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 17px 32px;
+  background: var(--ink);
+  color: var(--cream);
+  border: 1px solid var(--ink);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.rf__submit:hover:not(:disabled) {
+  background: var(--bronze);
+  border-color: var(--bronze);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px -10px rgba(184, 137, 90, 0.55);
+}
+
+.rf__submit:disabled { opacity: 0.6; cursor: progress; }
+
+.rf__submit svg { transition: transform 0.3s; }
+.rf__submit:hover:not(:disabled) svg { transform: translateX(3px); }
+
+.rf__note {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.rf__note a { color: var(--bronze); border-bottom: 1px solid var(--bronze); }
+
+.rf__status {
+  margin-top: 22px;
+  padding: 14px 18px;
+  font-size: 14px;
+  border-radius: 2px;
+  display: none;
+}
+
+.rf__status--show { display: block; }
+
+.rf__status--success {
+  background: rgba(184, 137, 90, 0.12);
+  color: var(--ink);
+  border-left: 4px solid var(--bronze);
+}
+
+.rf__status--error {
+  background: rgba(220, 80, 60, 0.08);
+  color: #8a2c1f;
+  border-left: 4px solid #c44b3a;
+}
+
+.rf__status--loading {
+  background: var(--cream-2);
+  color: var(--ink-soft);
+  border-left: 4px solid var(--stone);
+}
+
+@media (max-width: 1024px) {
+  .reserve-form .rf-head { grid-template-columns: 1fr; gap: 32px; }
+}
+
+@media (max-width: 640px) {
+  .rf__row--2 { grid-template-columns: 1fr; }
+  .rf { padding: 24px 20px; }
+  .rf__foot { flex-direction: column; align-items: stretch; }
+  .rf__submit { justify-content: center; width: 100%; }
+}
+
+/* =========================================================
    FAQ / SSS
    ========================================================= */
 

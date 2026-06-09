@@ -996,6 +996,86 @@
     </div>
   </section>
 
+  <!-- ================= REZERVASYON FORMU ================= -->
+  <section class="section reserve-form" id="reserve-form" aria-labelledby="rfh">
+    <div class="container">
+      <div class="rf-head">
+        <div class="reveal">
+          <div class="eyebrow">Rezervasyon Talebi</div>
+          <h2 id="rfh" class="section-title">Bilgileri bırakın, <em>biz arayalım</em>.</h2>
+        </div>
+        <p class="section-lede reveal reveal--delay-1">
+          Aşağıdaki formu doldurun, en kısa sürede sizi arayıp rezervasyon detaylarını birlikte netleştirelim.
+        </p>
+      </div>
+
+      <form class="rf reveal" id="reservationForm" novalidate>
+        <div class="rf__row rf__row--2">
+          <div class="rf__field">
+            <label for="rfName">Ad Soyad <span>*</span></label>
+            <input id="rfName" name="fullName" type="text" required minlength="2" maxlength="80" autocomplete="name" placeholder="Adınız Soyadınız" />
+          </div>
+          <div class="rf__field">
+            <label for="rfPhone">Telefon <span>*</span></label>
+            <input id="rfPhone" name="phone" type="tel" required minlength="10" maxlength="22" autocomplete="tel" placeholder="0532 123 45 67" />
+          </div>
+        </div>
+
+        <div class="rf__row rf__row--2">
+          <div class="rf__field">
+            <label for="rfCheckin">Giriş tarihi</label>
+            <input id="rfCheckin" name="checkIn" type="date" />
+          </div>
+          <div class="rf__field">
+            <label for="rfCheckout">Çıkış tarihi</label>
+            <input id="rfCheckout" name="checkOut" type="date" />
+          </div>
+        </div>
+
+        <div class="rf__row rf__row--2">
+          <div class="rf__field">
+            <label for="rfAdults">Yetişkin <span>*</span></label>
+            <select id="rfAdults" name="adults" required>
+              <option value="1">1 yetişkin</option>
+              <option value="2" selected>2 yetişkin</option>
+              <option value="3">3 yetişkin</option>
+              <option value="4">4 yetişkin</option>
+              <option value="5">5 yetişkin</option>
+              <option value="6">6+ yetişkin</option>
+            </select>
+          </div>
+          <div class="rf__field">
+            <label for="rfChildren">Çocuk</label>
+            <select id="rfChildren" name="children">
+              <option value="0" selected>0 çocuk</option>
+              <option value="1">1 çocuk</option>
+              <option value="2">2 çocuk</option>
+              <option value="3">3 çocuk</option>
+              <option value="4">4 çocuk</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="rf__row rf__ages" id="rfAges" hidden></div>
+
+        <div class="rf__field">
+          <label for="rfMessage">Notunuz (opsiyonel)</label>
+          <textarea id="rfMessage" name="message" rows="3" maxlength="1500" placeholder="Özel istek, beklenti veya soru…"></textarea>
+        </div>
+
+        <div class="rf__foot">
+          <button type="submit" class="rf__submit" id="rfSubmit">
+            <span>Talep Gönder</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M9 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+          <p class="rf__note">Anında iletişim için: <a href="tel:+903244040770">0324 404 07 70</a></p>
+        </div>
+
+        <div class="rf__status" id="rfStatus" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
   <!-- ================= SSS / FAQ ================= -->
   <section class="section section--sand" id="sss" aria-labelledby="sss-heading">
     <div class="container">
@@ -1186,7 +1266,7 @@
     </span>
   </a>
 
-  <script src="/js/main.js?v=2" defer></script>
+  <script src="/js/main.js?v=3" defer></script>
   <div class="nav__mobile" id="navMobile">
     <button class="nav__mobile-close" id="navMobileClose" type="button" aria-label="Menüyü kapat">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
