@@ -2,40 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://mersinfenrirotel.com/</loc>
+    <loc>https://mersinfermirotel.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://mersinfenrirotel.com/assets/images/slider44.jpg</image:loc>
+      <image:loc>https://mersinfermirotel.com/assets/images/slider44.jpg</image:loc>
       <image:title>Mersin Kızkalesi Fermir Otel — gece dış görünüm</image:title>
       <image:caption>Mersin Kızkalesi'nde denize birkaç adım uzaklıkta aile dostu otel</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://mersinfenrirotel.com/assets/rooms/room1.jpg</image:loc>
+      <image:loc>https://mersinfermirotel.com/assets/rooms/room1.jpg</image:loc>
       <image:title>Fermir Otel — Standart Çift Kişilik Oda</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://mersinfenrirotel.com/assets/rooms/room2.jpg</image:loc>
+      <image:loc>https://mersinfermirotel.com/assets/rooms/room2.jpg</image:loc>
       <image:title>Fermir Otel — Twin Oda</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://mersinfenrirotel.com/assets/rooms/room3.jpg</image:loc>
+      <image:loc>https://mersinfermirotel.com/assets/rooms/room3.jpg</image:loc>
       <image:title>Fermir Otel — Aile Süiti</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://mersinfenrirotel.com/assets/gallery/2-thumb.jpg</image:loc>
+      <image:loc>https://mersinfermirotel.com/assets/gallery/2-thumb.jpg</image:loc>
       <image:title>Fermir Otel Kızkalesi — havuz başı teras</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://mersinfenrirotel.com/assets/images/slideracik.jpg</image:loc>
+      <image:loc>https://mersinfermirotel.com/assets/images/slideracik.jpg</image:loc>
       <image:title>Fermir Otel — açık büfe kahvaltı</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://mersinfenrirotel.com/assets/poi/kizkalesi.jpg</image:loc>
+      <image:loc>https://mersinfermirotel.com/assets/poi/kizkalesi.jpg</image:loc>
       <image:title>Kızkalesi — denizdeki ortaçağ kalesi</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://mersinfenrirotel.com/assets/poi/korykos.jpg</image:loc>
+      <image:loc>https://mersinfermirotel.com/assets/poi/korykos.jpg</image:loc>
       <image:title>Korykos Antik Kara Kalesi</image:title>
     </image:image>
   </url>

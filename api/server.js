@@ -7,7 +7,7 @@ const TOKEN = process.env.META_CAPI_ACCESS_TOKEN || "";
 const TEST_CODE = process.env.META_CAPI_TEST_EVENT_CODE || "";
 const ALLOWED_ORIGINS = (
   process.env.ALLOWED_ORIGINS ||
-  "https://mersinfenrirotel.com,https://www.mersinfenrirotel.com"
+  "https://mersinfermirotel.com,https://www.mersinfermirotel.com,https://mersinfenrirotel.com,https://www.mersinfenrirotel.com"
 )
   .split(",")
   .map((s) => s.trim())
