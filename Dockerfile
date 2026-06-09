@@ -10,6 +10,7 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy site
 COPY index.html /usr/share/nginx/html/index.html
+COPY 404.html /usr/share/nginx/html/404.html
 COPY css/ /usr/share/nginx/html/css/
 COPY js/ /usr/share/nginx/html/js/
 COPY assets/ /usr/share/nginx/html/assets/
@@ -18,6 +19,11 @@ COPY robots.txt /usr/share/nginx/html/robots.txt
 COPY llms.txt /usr/share/nginx/html/llms.txt
 COPY kizkalesi-rehberi/ /usr/share/nginx/html/kizkalesi-rehberi/
 COPY mersin-erdemli-otel/ /usr/share/nginx/html/mersin-erdemli-otel/
+COPY korykos-antik-kenti/ /usr/share/nginx/html/korykos-antik-kenti/
+COPY elaiussa-sebaste/ /usr/share/nginx/html/elaiussa-sebaste/
+COPY kanlidivane/ /usr/share/nginx/html/kanlidivane/
+COPY yarim-pansiyon-otel-mersin/ /usr/share/nginx/html/yarim-pansiyon-otel-mersin/
+COPY kizkalesi-aile-tatili/ /usr/share/nginx/html/kizkalesi-aile-tatili/
 
 EXPOSE 80
 
