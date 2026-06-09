@@ -140,14 +140,91 @@
       "name": "Kızkalesi",
       "containedInPlace": {
         "@type": "City",
-        "name": "Mersin"
+        "name": "Erdemli",
+        "containedInPlace": {
+          "@type": "AdministrativeArea",
+          "name": "Mersin",
+          "containedInPlace": {
+            "@type": "Country",
+            "name": "Türkiye"
+          }
+        }
       }
     },
+    "areaServed": [
+      { "@type": "Place", "name": "Kızkalesi" },
+      { "@type": "Place", "name": "Erdemli" },
+      { "@type": "Place", "name": "Mersin" },
+      { "@type": "Place", "name": "Çukurova" }
+    ],
+    "knowsAbout": [
+      "Kızkalesi", "Korykos", "Elaiussa Sebaste", "Kanlıdivane",
+      "Cennet ve Cehennem Mağaraları", "Adam Kayalar",
+      "Akdeniz mutfağı", "yarım pansiyon konaklama", "aile dostu otel"
+    ],
+    "availableLanguage": ["Türkçe", "English"],
+    "makesOffer": {
+      "@type": "Offer",
+      "name": "Yarım Pansiyon Konaklama",
+      "description": "Konaklama + sabah açık büfe kahvaltı + akşam yemeği dahil",
+      "category": "Half Board"
+    },
     "nearbyAttractions": [
-      { "@type": "TouristAttraction", "name": "Kızkalesi", "description": "Karşı kıyıda denizdeki ortaçağ kalesi" },
-      { "@type": "TouristAttraction", "name": "Korykos Antik Kenti", "description": "Kara kalesi ve antik liman" },
-      { "@type": "TouristAttraction", "name": "Elaiussa Sebaste", "description": "Roma dönemi tiyatrosu ve antik kent" },
-      { "@type": "TouristAttraction", "name": "Kanlıdivane", "description": "Bizans kilise kalıntıları ve obruk" }
+      { "@type": "TouristAttraction", "name": "Kızkalesi (Deniz Kalesi)", "description": "Karşı kıyıda denizdeki sekiz kuleli ortaçağ kalesi", "geo": { "@type": "GeoCoordinates", "latitude": 36.4651, "longitude": 34.1532 } },
+      { "@type": "TouristAttraction", "name": "Korykos Antik Kenti", "description": "Kara kalesi ve antik liman, 400 m uzaklıkta", "geo": { "@type": "GeoCoordinates", "latitude": 36.4665, "longitude": 34.1538 } },
+      { "@type": "TouristAttraction", "name": "Elaiussa Sebaste Antik Kenti", "description": "Roma dönemi tiyatrosu ve antik liman kenti, 3 km", "geo": { "@type": "GeoCoordinates", "latitude": 36.4805, "longitude": 34.1631 } },
+      { "@type": "TouristAttraction", "name": "Kanlıdivane Antik Kenti", "description": "Bizans kilise kalıntıları ve obruk, 10 km", "geo": { "@type": "GeoCoordinates", "latitude": 36.5403, "longitude": 34.1408 } },
+      { "@type": "TouristAttraction", "name": "Cennet ve Cehennem Mağaraları", "description": "Doğal sinkhole'lar ve antik kilise" },
+      { "@type": "TouristAttraction", "name": "Adam Kayalar", "description": "Antik kaya kabartmaları" }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Oda Tipleri",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "HotelRoom", "name": "Standart Çift Kişilik Oda", "description": "1 double yatak, 2 misafir, klima, LED TV, mini bar, Wi-Fi", "occupancy": { "@type": "QuantitativeValue", "maxValue": 2 } } },
+        { "@type": "Offer", "itemOffered": { "@type": "HotelRoom", "name": "Twin Oda", "description": "2 ayrı yatak, 2 misafir, klima, LED TV, mini bar, Wi-Fi", "occupancy": { "@type": "QuantitativeValue", "maxValue": 2 } } },
+        { "@type": "Offer", "itemOffered": { "@type": "HotelRoom", "name": "Aile Süiti", "description": "Geniş yaşam alanı, 4 misafire kadar, klima, LED TV, mini bar, Wi-Fi", "occupancy": { "@type": "QuantitativeValue", "maxValue": 4 } } }
+      ]
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "@id": "https://mersinfermirotel.com/#restaurant",
+    "name": "Fermir Otel Restoran",
+    "description": "Yarım pansiyon konseptli otel restoranı. Mevsime göre değişen Akdeniz mutfağı; her sabah açık büfe kahvaltı, her akşam à la carte yemek servisi. Otel misafirlerine konaklama fiyatına dahildir.",
+    "url": "https://mersinfermirotel.com/#dining",
+    "servesCuisine": ["Akdeniz", "Türk", "Çukurova"],
+    "priceRange": "$$",
+    "acceptsReservations": true,
+    "telephone": "+903244040770",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Akif Tığ Cd. 10/A",
+      "addressLocality": "Kızkalesi",
+      "addressRegion": "Mersin",
+      "postalCode": "33790",
+      "addressCountry": "TR"
+    },
+    "containedInPlace": { "@id": "https://mersinfermirotel.com/#hotel" },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "name": "Açık büfe kahvaltı",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "07:30",
+        "closes": "10:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "name": "Akşam yemeği",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "19:00",
+        "closes": "22:00"
+      }
     ]
   }
   </script>
@@ -255,6 +332,38 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Otelden Kızkalesi (200 m, denizde), Korykos Antik Kenti (400 m), Elaiussa Sebaste Antik Kenti ve Roma tiyatrosu (3 km), Kanlıdivane Bizans kalıntıları (10 km) ve Cennet-Cehennem mağaraları yürüme ya da kısa araç mesafesindedir."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mersin Kızkalesi'nde otel ararken nelere dikkat etmeliyim?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kızkalesi'nde otel seçerken dört kritere dikkat edilir: 1) Denize mesafe — sahile yürüme mesafesi konfor sağlar (Fermir Otel: birkaç adım). 2) Yemek konsepti — yarım pansiyon (kahvaltı + akşam) en avantajlısıdır (Fermir Otel yarım pansiyondur). 3) Açık havuz olup olmadığı (Fermir Otel'de var). 4) Antik kentlere yakınlık — Korykos, Elaiussa Sebaste ve Kanlıdivane'ye 10 km içinde olmalıdır."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mersin Kızkalesi'ne nasıl gelinir?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kızkalesi, Mersin il merkezine yaklaşık 60 km, Adana Şakirpaşa Havalimanı'na 110 km, Mersin Havalimanı'na (yapımı süren) ise 50 km uzaklıktadır. D-400 karayolu ile araç ulaşımı kolaydır. Otobüsle Mersin/Erdemli merkezden minibüs hatları işler. Fermir Otel havalimanı transfer hizmeti sunar (talep üzerine)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kızkalesi'nde tatil ne zaman ideal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kızkalesi'nde deniz sezonu Mayıs sonu - Ekim ortası arasıdır; en ideal aylar Haziran ve Eylül'dür (kalabalık az, su 25°C). Temmuz-Ağustos zirve sezondur, hem deniz hem havuz açıktır. Antik kentleri gezmek için sıcağın daha yumuşadığı Eylül-Ekim önerilir."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Fermir Otel'in oda fiyatları ne kadar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fermir Otel yarım pansiyon konseptli bir oteldir; konaklamaya sabah açık büfe kahvaltı ve akşam yemeği dahildir. Sezon ve oda tipine göre güncel fiyatlar için rezervasyon hattımız +90 324 404 07 70'ten ulaşabilirsiniz."
         }
       }
     ]
@@ -870,7 +979,22 @@
 
         <details class="faq reveal">
           <summary><h3>Fermir Otel'den hangi tarihi yerlere ulaşabilirim?</h3></summary>
-          <p>Otelden Kızkalesi (200 m, denizde), Korykos Antik Kenti (400 m), Elaiussa Sebaste Antik Kenti ve Roma tiyatrosu (3 km), Kanlıdivane Bizans kalıntıları (10 km) ve Cennet-Cehennem mağaraları yürüme ya da kısa araç mesafesindedir.</p>
+          <p>Otelden <strong>Kızkalesi</strong> (200 m, denizde), <strong>Korykos Antik Kenti</strong> (400 m), <strong>Elaiussa Sebaste</strong> Antik Kenti ve Roma tiyatrosu (3 km), <strong>Kanlıdivane</strong> Bizans kalıntıları (10 km) ve <strong>Cennet-Cehennem mağaraları</strong> yürüme ya da kısa araç mesafesindedir.</p>
+        </details>
+
+        <details class="faq reveal">
+          <summary><h3>Mersin Kızkalesi'nde otel ararken nelere dikkat etmeliyim?</h3></summary>
+          <p>Kızkalesi'nde otel seçerken dört kritere dikkat edilir: <strong>1)</strong> Denize mesafe — sahile yürüme mesafesi konfor sağlar. <strong>2)</strong> Yemek konsepti — yarım pansiyon (kahvaltı + akşam) en avantajlısıdır. <strong>3)</strong> Açık havuz olup olmadığı. <strong>4)</strong> Antik kentlere yakınlık — Korykos, Elaiussa Sebaste ve Kanlıdivane'ye 10 km içinde olmalıdır. Fermir Otel dört kriteri de karşılar.</p>
+        </details>
+
+        <details class="faq reveal">
+          <summary><h3>Mersin Kızkalesi'ne nasıl gelinir?</h3></summary>
+          <p>Kızkalesi, Mersin il merkezine yaklaşık <strong>60 km</strong>, <strong>Adana Şakirpaşa Havalimanı</strong>'na <strong>110 km</strong> uzaklıktadır. D-400 karayolu ile araç ulaşımı kolaydır. Otobüsle Mersin/Erdemli merkezden minibüs hatları işler. Otelimiz havalimanı transfer hizmeti sunar — talep üzerine ücretli ayarlanır.</p>
+        </details>
+
+        <details class="faq reveal">
+          <summary><h3>Kızkalesi'nde tatil ne zaman ideal?</h3></summary>
+          <p>Kızkalesi'nde deniz sezonu <strong>Mayıs sonu - Ekim ortası</strong> arasıdır. En ideal aylar <strong>Haziran ve Eylül</strong>'dür (kalabalık az, su sıcaklığı ~25°C). Temmuz-Ağustos zirve sezondur. Antik kentleri gezmek için sıcağın yumuşadığı <strong>Eylül-Ekim</strong> önerilir.</p>
         </details>
       </dl>
     </div>
@@ -910,9 +1034,9 @@
 
         <div class="contact__map reveal">
           <iframe
-            src="https://www.openstreetmap.org/export/embed.html?bbox=34.142%2C36.463%2C34.155%2C36.471&layer=mapnik&marker=36.467%2C34.149"
+            src="https://maps.google.com/maps?q=Akif%20T%C4%B1%C4%9F%20Cd.%2010%2FA%2C%20K%C4%B1zkalesi%2C%20Erdemli%2C%20Mersin&t=m&z=15&output=embed&iwloc=near"
             loading="lazy"
-            title="Mersin Fermir Otel — Akif Tığ Cd. 10/A, Kızkalesi"
+            title="Mersin Fermir Otel — Akif Tığ Cd. 10/A, Kızkalesi, Erdemli, Mersin — konum haritası"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>

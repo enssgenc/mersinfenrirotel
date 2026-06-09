@@ -21,3 +21,6 @@ User-agent: CCBot
 Allow: /
 
 Sitemap: https://mersinfermirotel.com/sitemap.xml
+
+# LLM context file
+LLM-Index: https://mersinfermirotel.com/llms.txt
