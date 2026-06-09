@@ -366,8 +366,10 @@ p { margin: 0; }
 }
 
 /* Mobile menu container — hidden by default at every breakpoint;
-   only the mobile @media query below opts it back in.            */
-.nav__mobile { display: none; }
+   only the mobile @media query below opts it back in. !important
+   prevents any stale cached CSS or specificity quirk from leaking
+   the menu links into the page flow.                              */
+.nav__mobile { display: none !important; }
 
 .nav__toggle span {
   position: absolute;
@@ -498,6 +500,37 @@ p { margin: 0; }
   margin-bottom: 44px;
   text-shadow: 0 1px 14px rgba(0, 0, 0, 0.45);
   animation: hero-fade-up 1s var(--ease-out) 0.45s both;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px 8px 16px;
+  margin-bottom: 14px;
+  background: var(--bronze);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  box-shadow: 0 10px 26px -8px rgba(184, 137, 90, 0.55);
+  text-shadow: none;
+}
+
+.hero__badge::before {
+  content: "✓";
+  font-size: 11px;
+  font-weight: 700;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(251, 247, 240, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero__actions {
@@ -1735,7 +1768,7 @@ p { margin: 0; }
     background: var(--cream);
     z-index: 55;
     padding: 110px 28px 40px;
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     gap: 8px;
     transform: translateY(-100%);
