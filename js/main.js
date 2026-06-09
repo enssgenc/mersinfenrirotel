@@ -93,7 +93,7 @@
           try { window.fbq("track", "Lead", { content_category: "reservation_form", value: 1, currency: "TRY" }); } catch (_) {}
         }
       } catch (err) {
-        setStatus("⚠ Form gönderilemedi: " + (err.message || "tekrar deneyin") + ". Bizi arayabilirsiniz: 0324 404 07 70", "error");
+        setStatus("⚠ Form gönderilemedi: " + (err.message || "tekrar deneyin") + ". Bizi arayabilirsiniz: 0536 893 67 67", "error");
       } finally {
         submitBtn.disabled = false;
       }
